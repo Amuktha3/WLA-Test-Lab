@@ -1,0 +1,13 @@
+country,product_id,expected_date,expected_type,expected_change_pct,scenario_id,notes
+Germany,SYN-002,2026-02-15,UP,30.000000000000004,permanent_increase,Synthetic permanent level shift; approximate date.
+Italy,SYN-003,2026-02-25,DOWN,-28.000000000000004,permanent_decrease,Synthetic permanent level shift; approximate date.
+Spain,SYN-004,2026-02-10,TEMPORARY_DISCOUNT,-35.0,temporary_promotion,"Temporary discount, reverts after 12 days."
+United Kingdom,SYN-005,2026-02-05,SINGLE_DAY_SPIKE,179.99999999999997,single_spike,One-day injected anomaly; reversion expected.
+France,SYN-006,2026-02-20,SHOP_SWITCH,1.5,shop_switch,Shop identity changes; price level approximately stable.
+Germany,SYN-007,2026-01-31,GRADUAL_DRIFT,17.999999999999993,gradual_drift,"Gradual change, not a discrete jump."
+Spain,SYN-009,2026-03-12,OBSERVATION_GAP,,gap_then_change,Five-day missing-data gap inserted before the subsequent price change.
+Spain,SYN-009,2026-03-12,UP,35.00000000000001,gap_then_change,Synthetic permanent level shift; approximate date.
+United Kingdom,SYN-010,2026-01-31,UP,19.999999999999996,two_resets,Synthetic permanent level shift; approximate date.
+United Kingdom,SYN-010,2026-03-20,UP,25.0,two_resets,Synthetic permanent level shift; approximate date.
+France,SYN-011,2026-02-20,SHORT_TRANSIENT_MOVE,35.00000000000001,short_reversal,Transient rise reverts after 3 days.
+Germany,SYN-012,2026-03-02,UP,12.00000000000001,small_change,Synthetic permanent level shift; approximate date.

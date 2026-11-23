@@ -1,0 +1,13 @@
+scenario_id,description,expected_behavior,design
+stable_noise,Stable price with small daily jitter,NO_RESET,[]
+permanent_increase,Permanent price increase after a change date,RESET_UP,"[[""up"", 45, 1.3]]"
+permanent_decrease,Permanent markdown,RESET_DOWN,"[[""down"", 55, 0.72]]"
+temporary_promotion,Temporary discount then restoration,TEMP_PROMO,"[[""promo"", 40, 0.65, 12]]"
+single_spike,One-day extreme price spike then reversion,ANOMALY_SPIKE,"[[""spike"", 35, 2.8]]"
+shop_switch,Lowest-price shop identity switches while price level stays similar,SHOP_SWITCH_ONLY,"[[""shop"", 50]]"
+gradual_drift,Gradual 18% drift over time,SUBTHRESHOLD_DRIFT,"[[""drift"", 30, 1.18]]"
+persistent_noise,Volatile noise without a designed reset,NO_RESET_NOISY,[]
+gap_then_change,Large price change following an observation gap,GAP_CHANGE,"[[""gap"", 65], [""up"", 70, 1.35]]"
+two_resets,Two distinct permanent increases,MULTIPLE_RESETS,"[[""up"", 30, 1.2], [""up"", 78, 1.25]]"
+short_reversal,Short-lived increase and reversal,SHORT_TRANSIENT,"[[""bump"", 50, 1.35, 3]]"
+small_change,Small permanent price adjustment below baseline threshold,SUBTHRESHOLD_CHANGE,"[[""up"", 60, 1.12]]"

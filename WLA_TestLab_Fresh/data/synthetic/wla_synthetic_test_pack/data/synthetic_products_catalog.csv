@@ -1,0 +1,16 @@
+country,product_id,category,currency,scenario_id,scenario_description,base_price,observations
+France,SYN-001,Consumer Electronics,EUR,stable_noise,Stable price with small daily jitter,82.16,120
+Germany,SYN-002,Home Appliance,EUR,permanent_increase,Permanent price increase after a change date,392.26,120
+Italy,SYN-003,Small Appliance,EUR,permanent_decrease,Permanent markdown,276.01,120
+Spain,SYN-004,Consumer Electronics,EUR,temporary_promotion,Temporary discount then restoration,237.81,120
+United Kingdom,SYN-005,Home Appliance,GBP,single_spike,One-day extreme price spike then reversion,362.96,120
+France,SYN-006,Small Appliance,EUR,shop_switch,Lowest-price shop identity switches while price level stays similar,552.92,120
+Germany,SYN-007,Consumer Electronics,EUR,gradual_drift,Gradual 18% drift over time,557.46,120
+Italy,SYN-008,Home Appliance,EUR,persistent_noise,Volatile noise without a designed reset,569.48,120
+Spain,SYN-009,Small Appliance,EUR,gap_then_change,Large price change following an observation gap,117.43,115
+United Kingdom,SYN-010,Consumer Electronics,GBP,two_resets,Two distinct permanent increases,138.72,120
+France,SYN-011,Home Appliance,EUR,short_reversal,Short-lived increase and reversal,183.89,120
+Germany,SYN-012,Small Appliance,EUR,small_change,Small permanent price adjustment below baseline threshold,134.66,120
+Spain,SYN-013,Synthetic Test Series,EUR,permanent_increase-replicate,Replicate scenario with different price scale and country.,319.88,120
+France,SYN-014,Synthetic Test Series,EUR,temporary_promotion-replicate,Replicate scenario with different price scale and country.,342.15,120
+Germany,SYN-015,Synthetic Test Series,EUR,two_resets-replicate,Replicate scenario with different price scale and country.,390.99,120
