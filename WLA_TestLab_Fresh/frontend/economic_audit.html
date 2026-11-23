@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WLA · Economic Audit</title>
+<style>
+:root{--bg:#0c1119;--panel:#141d29;--line:#29384a;--text:#e8eef6;--muted:#9eafc2;--accent:#75a9ff;--green:#70d6a3;--orange:#ffbd69}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,Segoe UI,Arial,sans-serif}
+header{padding:18px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{font-weight:800;letter-spacing:.1em}.brand small{display:block;font-weight:400;letter-spacing:0;color:var(--muted)}
+main{max-width:1400px;margin:auto;padding:26px}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}h1{margin:0 0 5px;font-size:26px}h2,h3{margin:0 0 12px}.muted{color:var(--muted)}.pill{border:1px solid var(--line);border-radius:30px;padding:6px 11px;color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#101824;border:1px solid var(--line);border-radius:12px;padding:14px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;font-size:22px;margin-top:5px}
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.field label{display:block;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%;background:#0e1722;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:10px}
+.btn{border:1px solid var(--line);border-radius:9px;padding:10px 14px;color:var(--text);background:#1b2b40;cursor:pointer}.btn:hover{border-color:var(--accent)}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:950px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:10px 8px;white-space:nowrap}th{color:var(--muted);font-size:12px}
+.notice{border:1px solid #665331;background:#302716;color:#ffdc9f;border-radius:10px;padding:12px 14px;margin:12px 0}.error{color:#ff9d9d;border-color:#703d42;background:#2c171c}
+button{font:inherit}.empty{padding:30px;text-align:center;color:var(--muted)}
+@media(max-width:800px){main{padding:15px}.grid{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr}.head{display:block}}
+</style></head>
+<body>
+<header><div class="brand">WLA <small>Welfare Loss Auditor · Economic audit extension</small></div><a href="/" style="color:var(--accent)">← Back to Test Lab</a></header>
+<main><div class="head"><div><h1>Episode Economic Audit</h1><div class="muted">Estimate expenditure differences for detected price-reset episodes using explicit assumptions.</div></div><button class="btn" id="reload">↻ Load latest detector run</button></div>
+<div id="status" class="muted">Loading latest run…</div>
+<div class="panel"><h3>Assumptions and filters</h3><div class="controls">
+<div class="field"><label>Event set</label><select id="mode"><option value="robust">Robust-treated</option><option value="raw">Raw detections</option><option value="flag_only">Flag-only</option></select></div>
+<div class="field"><label>Assumed units purchased per day</label><input id="quantity" type="number" min="0" step="0.1" value="1"></div>
+<div class="field"><label>Assumed episode duration (days)</label><input id="duration" type="number" min="1" step="1" value="30"></div>
+</div><div class="controls" style="margin-top:14px">
+<div class="field"><label>Country filter</label><select id="country"><option value="ALL">All countries</option></select></div>
+<div class="field"><label>Product filter</label><select id="product"><option value="ALL">All products</option></select></div>
+<div class="field" style="align-self:end"><button class="btn" id="apply">Update audit</button></div>
+</div></div>
+<div class="grid" id="summary"></div>
+<div class="panel"><h3>Episode-level expenditure estimates</h3><div class="table-wrap"><table><thead><tr><th>Date</th><th>Country</th><th>Product</th><th>Direction</th><th>Before</th><th>After</th><th>Δ per unit</th><th>Change %</th><th>Assumed days</th><th>Units/day</th><th>Estimate</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+<div class="notice">Interpretation limits: this is a fixed-quantity spending estimate under user-entered quantity and duration assumptions. It is not measured consumer welfare loss, consumer surplus, proof of manipulation, or evidence of collusion. The dataset does not supply consumer purchase quantities or a demand model.</div>
+</main><script src="economic_audit.js"></script></body></html>
